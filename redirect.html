@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>App Store Redirect</title>
+</head>
+<body>
+    <script>
+        var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+        if (/android/i.test(userAgent)) {
+            // User is on Android
+            window.location.href = "https://play.google.com/store/search?q=jio+bp+pulse+charge&c=apps";
+        } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+            // User is on iOS
+            window.location.href = "https://apps.apple.com/in/app/jio-bp-pulse-charge/id1600465639";
+        } else {
+            // Redirect to a fallback page if device is unrecognized
+            window.location.href = "fallback-url";
+        }
+    </script>
+</body>
+</html>
